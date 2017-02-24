@@ -3,6 +3,9 @@ import {
   NEWS_LIST_IS_LOADING,
   FETCH_NEWS_LIST_SUCCESS,
   FETCH_NEWS_LIST_FAILED,
+  NEWS_ITEM_IS_LOADING,
+  FETCH_NEWS_ITEM_SUCCESS,
+  FETCH_NEWS_ITEM_FAILED,
 } from './types';
 
 const NEWS_LIST_URL = 'http://localhost:8888/api/news/';
@@ -41,4 +44,37 @@ export const fetchNewsListFailed = (bool) => {
 };
 
 
+
+
+export const newsItemIsLoading = (bool) => {
+  return {
+    type: NEWS_ITEM_IS_LOADING,
+    payload: bool,
+  };
+};
+
+export const fetchNewsItem = (id) => {
+  return (dispatch) => {
+    dispatch(newsItemIsLoading(true));
+
+    axios.get(`${NEWS_LIST_URL}${id}/`)
+      .then(response => dispatch(fetchNewsItemSuccess(response)))
+      .catch(()=> dispatch(fetchNewsItemFailed(true)));
+  };
+};
+
+export const fetchNewsItemSuccess = (response) => {
+  // console.log(response)
+  return {
+    type: FETCH_NEWS_ITEM_SUCCESS,
+    payload: response,
+  };
+};
+
+export const fetchNewsItemFailed = (bool) => {
+  return {
+    type: FETCH_NEWS_ITEM_FAILED,
+    payload: bool,
+  };
+};
 

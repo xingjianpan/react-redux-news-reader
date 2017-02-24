@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // relative import
 import { fetchNewsList } from '../actions';
+import {Link} from 'react-router';
 
 class NewsList extends Component {
   componentDidMount() {
@@ -18,7 +19,8 @@ class NewsList extends Component {
     return (
 
       <li key={newsItem.id}>
-        {newsItem.title}
+
+         <Link to={newsItem.link}> {newsItem.title}</Link>
       </li>
     );
   }
@@ -45,7 +47,7 @@ class NewsList extends Component {
 }
 
 const mapStateToPros = (state) => {
-  const { isLoading, newsList, hasErrored } = state.news;
+  const { isLoading, newsList, hasErrored } = state.newsList;
   return {
     isLoading,
     newsList,

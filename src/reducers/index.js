@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import NewsListReducer from './NewsListReducer';
+import NewsItemReducer from './NewsItemReducer';
 
 const rootReducer = combineReducers({
-  news: NewsListReducer,
+  newsList: NewsListReducer,
+  newsItem: NewsItemReducer,
 });
 
 export default rootReducer;

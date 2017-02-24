@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import Feature from './components/Feature';
 import App from './components/app';
 import NewsList from './components/NewsList';
+import NewsItem from './components/NewsItem';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, reduxThunk)(createStore);
@@ -22,8 +23,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={NewsList}/>
+        <IndexRoute component={NewsList} />
         <Route path="/feature" component={Feature} />
+        <Route path="/news/:newsId" component={NewsItem} />
       </Route>
     </Router>
   </Provider>
