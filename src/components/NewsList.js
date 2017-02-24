@@ -19,14 +19,9 @@ class NewsList extends Component {
     return (
 
       <li key={newsItem.id}>
-
          <Link to={newsItem.link}> {newsItem.title}</Link>
       </li>
     );
-  }
-
-  renderNewsList() {
-
   }
 
   render() {
