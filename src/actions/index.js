@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
   NEWS_LIST_IS_LOADING,
   FETCH_NEWS_LIST_SUCCESS,
-
+  FETCH_NEWS_LIST_FAILED,
 } from './types';
 
 const NEWS_LIST_URL = 'http://localhost:8888/api/news/';
@@ -21,7 +21,7 @@ export const fetchNewsList = (url) => {
 
     axios.get(NEWS_LIST_URL)
       .then(response => dispatch(fetchNewsListSuccess(response)))
-      .catch();
+      .catch(()=> dispatch(fetchNewsListFailed(true)));
   };
 };
 
@@ -32,3 +32,13 @@ export const fetchNewsListSuccess = (response) => {
     payload: response,
   };
 };
+
+export const fetchNewsListFailed = (bool) => {
+  return {
+    type: FETCH_NEWS_LIST_FAILED,
+    payload: bool,
+  };
+};
+
+
+

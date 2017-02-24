@@ -3,11 +3,13 @@
 import {
   NEWS_LIST_IS_LOADING,
   FETCH_NEWS_LIST_SUCCESS,
+  FETCH_NEWS_LIST_FAILED,
 } from '../actions/types';
 
 const INITIAL_STATE = {
   isLoading: true,
   newsList: [],
+  hasErrored: false,
 };
 
 
@@ -18,6 +20,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, isLoading: true };
     case FETCH_NEWS_LIST_SUCCESS:
       return { ...state, newsList: action.payload.data, isLoading: false };
+    case FETCH_NEWS_LIST_FAILED:
+      return { ...state, hasErrored: true };
     default:
       return state;
   }

@@ -10,7 +10,7 @@ class NewsList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log('next props', nextProps)
+    console.log('next props', nextProps)
   }
 
   renderNewsItem(newsItem) {
@@ -28,6 +28,9 @@ class NewsList extends Component {
   }
 
   render() {
+    if (this.props.hasErrored) {
+        return <p>Sorry! There was an error loading the items</p>;
+    }
     if (this.props.isLoading) {
       return <p>Loading…</p>;
     }
@@ -42,10 +45,11 @@ class NewsList extends Component {
 }
 
 const mapStateToPros = (state) => {
-  const { isLoading, newsList } = state.news;
+  const { isLoading, newsList, hasErrored } = state.news;
   return {
     isLoading,
     newsList,
+    hasErrored,
   };
 };
 
