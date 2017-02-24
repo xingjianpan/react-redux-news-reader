@@ -26,6 +26,7 @@ export const fetchNewsList = (url) => {
 };
 
 export const fetchNewsListSuccess = (response) => {
+  // console.log(response)
   return {
     type: FETCH_NEWS_LIST_SUCCESS,
     payload: response,

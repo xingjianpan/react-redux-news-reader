@@ -4,22 +4,47 @@ import { connect } from 'react-redux';
 import { fetchNewsList } from '../actions';
 
 class NewsList extends Component {
-
   componentDidMount() {
     this.props.fetchNewsList();
+    // console.log('props', this.props)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // console.log('next props', nextProps)
+  }
+
+  renderNewsItem(newsItem) {
+    // console.log(newsItem)
+    return (
+
+      <li key={newsItem.id}>
+        {newsItem.title}
+      </li>
+    );
+  }
+
+  renderNewsList() {
+
   }
 
   render() {
+    if (this.props.isLoading) {
+      return <p>Loading…</p>;
+    }
     return (
-      <div>
-        My News List
-      </div>
+      <ul>
+        {this.props.newsList.results.map(item => this.renderNewsItem(item)) }
+      </ul>
     );
+
   }
+
 }
 
-const mapStateToPros = ({ newsList }) => {
+const mapStateToPros = (state) => {
+  const { isLoading, newsList } = state.news;
   return {
+    isLoading,
     newsList,
   };
 };
