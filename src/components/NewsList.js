@@ -15,11 +15,15 @@ class NewsList extends Component {
   renderNewsItem(newsItem) {
     // console.log(newsItem)
     return (
-
-      <li key={newsItem.id}>
-         <Link to={newsItem.link}> {newsItem.title}</Link>
-         <span>   {newsItem.category}</span>
-      </li>
+      <Link
+        className="list-group-item list-group-item-action"
+        to={newsItem.link}
+        key={newsItem.id}
+      >
+        <span className="categoryName">{newsItem.category}</span>
+        {'     '}
+        {newsItem.title}
+      </Link>
     );
   }
 
@@ -44,9 +48,9 @@ class NewsList extends Component {
     }
     return (
       <div>
-        <ul>
+        <div>
           {this.props.newsList.results.map(item => this.renderNewsItem(item)) }
-        </ul>
+        </div>
         <div>
           {this.renderButton()}
         </div>

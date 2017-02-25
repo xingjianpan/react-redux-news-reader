@@ -1,0 +1,10 @@
+.categoryName {
+
+  background: #0099cc;
+   color: #ffffff;
+    padding: 7px 12px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
