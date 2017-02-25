@@ -1,23 +1,30 @@
 import React, {Component} from 'react';
-
+import { connect } from 'react-redux';
 
 class Topics extends Component {
-
-  onTopicClick() {
-    console.log('clicked')
+  rendedFilter(topic) {
+    debugger
+    return (
+      <div>
+      </div>
+    );
   }
   render() {
     return (
-     <div>
-      <ul>
-        <li onClick={this.onTopicClick.bind(this)}>基金</li>
-        <li>理财</li>
-        <li>银行</li>
-        <li>保险</li>
-      </ul>
-    </div>
+      <div>
+        <ul>
+          TO DO
+        </ul>
+      </div>
     );
   }
 }
 
-export default Topics;
+const mapStateToProps = (state) => {
+  const { filters } = state.newsList;
+  return {
+    filters,
+  };
+};
+
+export default connect(mapStateToProps, null)(Topics);

@@ -58,7 +58,7 @@ class NewsList extends Component {
 
 const mapStateToPros = (state) => {
   const { isLoading, newsList, hasErrored } = state.newsList;
-  console.log(newsList)
+  // console.log(newsList)
   return {
     isLoading,
     newsList,

@@ -11,12 +11,12 @@ const INITIAL_STATE = {
   isLoading: true,
   newsList: [],
   hasErrored: false,
-  filters: ['基金', '理财', '银行', '保险'],
+  filters: [],
 };
 
 
 export default (state = INITIAL_STATE, action) => {
-  console.log('action: ', action);
+  // console.log('action: ', action);
   switch (action.type) {
     case NEWS_LIST_IS_LOADING:
       return { ...state, isLoading: true };
