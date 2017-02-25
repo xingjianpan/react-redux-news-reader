@@ -34,7 +34,7 @@ class NewsItem extends Component {
         <ScrollToTopOnMount />
         <div>
           <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
-          <Link to={`/news/${Number(news.id) + 1}`}>下一条</Link>
+          <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
         </div>
         <p />
         <a href={news.url}><h2>{news.title}</h2></a>
@@ -43,7 +43,7 @@ class NewsItem extends Component {
         <p><span>来源:</span>{news.source}</p>
         <div dangerouslySetInnerHTML={{ __html: news.content_dirty }} />
         <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
-        <Link to={`/news/${Number(news.id) + 1}`}>下一条</Link>
+        <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
       </div>
     );
   }
