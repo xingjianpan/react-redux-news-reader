@@ -6,10 +6,11 @@ import {
   NEWS_ITEM_IS_LOADING,
   FETCH_NEWS_ITEM_SUCCESS,
   FETCH_NEWS_ITEM_FAILED,
+  SET_VISIBILITY_FILTERS,
 } from './types';
 
 
-const NEWS_LIST_URL = 'http://localhost:8888/api/news/';
+const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
 
 export const newsListIsLoading = (bool) => {
   return {
@@ -78,3 +79,10 @@ export const fetchNewsItemFailed = (bool) => {
   };
 };
 
+
+export const setVisibilityFilters = (filters) => {
+  return {
+    type: SET_VISIBILITY_FILTERS,
+    payload: filters,
+  };
+};

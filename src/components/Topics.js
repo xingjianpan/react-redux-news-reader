@@ -2,20 +2,21 @@ import React, {Component} from 'react';
 
 
 class Topics extends Component {
-  render() {
 
+  onTopicClick() {
+    console.log('clicked')
+  }
+  render() {
     return (
-       <div>
-      Super Special Recipe
+     <div>
       <ul>
-        <li>1 cup Sugar</li>
-        <li>1 cup pepper</li>
-        <li>1 cup salt</li>
-        <h2>{this.props.params.repoName}</h2>
+        <li onClick={this.onTopicClick.bind(this)}>基金</li>
+        <li>理财</li>
+        <li>银行</li>
+        <li>保险</li>
       </ul>
     </div>
-
-      )
+    );
   }
 }
 

@@ -4,12 +4,14 @@ import {
   NEWS_LIST_IS_LOADING,
   FETCH_NEWS_LIST_SUCCESS,
   FETCH_NEWS_LIST_FAILED,
+  SET_VISIBILITY_FILTERS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
   isLoading: true,
   newsList: [],
   hasErrored: false,
+  filters: ['基金', '理财', '银行', '保险'],
 };
 
 
@@ -22,6 +24,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, newsList: action.payload.data, isLoading: false };
     case FETCH_NEWS_LIST_FAILED:
       return { ...state, hasErrored: true };
+    case SET_VISIBILITY_FILTERS:
+      return { ...state, filter: action.payload };
     default:
       return state;
   }
