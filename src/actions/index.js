@@ -8,8 +8,8 @@ import {
   FETCH_NEWS_ITEM_FAILED,
 } from './types';
 
-const NEWS_LIST_URL = 'http://localhost:8888/api/news/';
 
+const NEWS_LIST_URL = 'http://localhost:8888/api/news/';
 
 export const newsListIsLoading = (bool) => {
   return {
@@ -22,7 +22,7 @@ export const fetchNewsList = (url) => {
   return (dispatch) => {
     dispatch(newsListIsLoading(true));
 
-    axios.get(NEWS_LIST_URL)
+    axios.get(url)
       .then(response => dispatch(fetchNewsListSuccess(response)))
       .catch(()=> dispatch(fetchNewsListFailed(true)));
   };

@@ -11,8 +11,7 @@ class NewsItem extends Component {
     const news = this.props.news;
     return (
       <div>
-
-        <h2>{news.title}</h2>
+        <a href={news.url}><h2>{news.title}</h2></a>
         <div dangerouslySetInnerHTML={{ __html: news.content_dirty }} />
       </div>
     );
@@ -21,7 +20,6 @@ class NewsItem extends Component {
 
 const mapStateToProps = (state) => {
   const { isLoading, news, hasErrored } = state.newsItem;
-  // console.log(news);
   return {
     isLoading,
     news,

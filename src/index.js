@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import reduxThunk from 'redux-thunk'
-import ReduxPromise from 'redux-promise'
+import reduxThunk from 'redux-thunk';
+import ReduxPromise from 'redux-promise';
 import { Provider } from 'react-redux';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
-import Feature from './components/Feature';
+import Topics from './components/Topics';
 import App from './components/app';
 import NewsList from './components/NewsList';
 import NewsItem from './components/NewsItem';
@@ -24,7 +24,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={NewsList} />
-        <Route path="/feature" component={Feature} />
+        <Route path="/topics" component={Topics} />
         <Route path="/news/:newsId" component={NewsItem} />
       </Route>
     </Router>

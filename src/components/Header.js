@@ -8,7 +8,7 @@ class Header extends Component {
         <Link to="/" className="navbar-brand">Home</Link>
         <ul className="nav navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/feature">Feature</Link>
+            <Link className="nav-link" to="/topics">分类</Link>
           </li>
 
         </ul>
