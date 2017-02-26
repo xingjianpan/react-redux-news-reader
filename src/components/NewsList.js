@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchNewsList } from '../actions';
 import { Link } from 'react-router';
 
+
 const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
 
 class NewsList extends Component {
@@ -20,7 +21,7 @@ class NewsList extends Component {
         to={newsItem.link}
         key={newsItem.id}
       >
-        <span className="categoryName">{newsItem.category}</span>
+        <span className="categoryName" >{newsItem.category}</span>
         {'     '}
         {newsItem.title}
       </Link>

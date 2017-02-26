@@ -13,7 +13,7 @@ var config = {
     publicPath: "/", // relative path for github pages
     filename: "bundle.js", // no hash in main.js because index.html is a static page
   },
-  devtool: 'source-map',
+
   module: {
     loaders: [
      { test: /\.jsx?/,
@@ -35,6 +35,14 @@ var config = {
 
     ],
   },
+
+  plugins : [
+    new webpack.optimize.UglifyJsPlugin({minimize:true}),
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
+
+  ]
 }
 
 module.exports = config

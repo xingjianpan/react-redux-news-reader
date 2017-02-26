@@ -10,6 +10,7 @@ import App from './components/app';
 import NewsList from './components/NewsList';
 import NewsItem from './components/NewsItem';
 import reducers from './reducers';
+import './style.css';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, reduxThunk)(createStore);
 const store = createStoreWithMiddleware(
