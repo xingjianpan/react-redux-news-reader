@@ -12,6 +12,8 @@ const INITIAL_STATE = {
   newsList: [],
   hasErrored: false,
   filters: [],
+  next: null,
+  previuos: null,
 };
 
 
@@ -21,7 +23,11 @@ export default (state = INITIAL_STATE, action) => {
     case NEWS_LIST_IS_LOADING:
       return { ...state, isLoading: true };
     case FETCH_NEWS_LIST_SUCCESS:
-      return { ...state, newsList: action.payload.data, isLoading: false };
+      return { ...state,
+        newsList: [...state.newsList, ...action.payload.data.results],
+        isLoading: false,
+        next: action.payload.data.next,
+        previous: action.payload.data.previous };
     case FETCH_NEWS_LIST_FAILED:
       return { ...state, hasErrored: true };
     case SET_VISIBILITY_FILTERS:

@@ -29,12 +29,11 @@ class NewsList extends Component {
   }
 
   fetchMore() {
-    this.props.fetchNewsList(this.props.newsList.next);
+    this.props.fetchNewsList(this.props.next);
   }
 
   renderButton() {
-    const newsList = this.props.newsList;
-    if (newsList.next) {
+    if (this.props.next) {
       return <button onClick={this.fetchMore.bind(this)}>More</button>;
     }
     return <p>No more news</p>;
@@ -50,7 +49,7 @@ class NewsList extends Component {
     return (
       <div>
         <div>
-          {this.props.newsList.results.map(item => this.renderNewsItem(item)) }
+          {this.props.newsList.map(item => this.renderNewsItem(item)) }
         </div>
         <div>
           {this.renderButton()}
@@ -62,12 +61,14 @@ class NewsList extends Component {
 }
 
 const mapStateToPros = (state) => {
-  const { isLoading, newsList, hasErrored } = state.newsList;
-  // console.log(newsList)
+  const { isLoading, newsList, hasErrored, next, previous } = state.newsList;
+  console.log(newsList)
   return {
     isLoading,
     newsList,
     hasErrored,
+    next,
+    previous,
   };
 };
 
