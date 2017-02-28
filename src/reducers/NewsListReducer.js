@@ -5,6 +5,7 @@ import {
   FETCH_NEWS_LIST_SUCCESS,
   FETCH_NEWS_LIST_FAILED,
   SET_VISIBILITY_FILTERS,
+  RESET_NEWS_LIST,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -32,6 +33,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, hasErrored: true };
     case SET_VISIBILITY_FILTERS:
       return { ...state, filter: action.payload };
+    case RESET_NEWS_LIST:
+      return INITIAL_STATE;
     default:
       return state;
   }

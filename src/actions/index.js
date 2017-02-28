@@ -7,6 +7,7 @@ import {
   FETCH_NEWS_ITEM_SUCCESS,
   FETCH_NEWS_ITEM_FAILED,
   SET_VISIBILITY_FILTERS,
+  RESET_NEWS_LIST,
 } from './types';
 
 
@@ -25,9 +26,10 @@ export const fetchNewsList = (url) => {
 
     axios.get(url)
       .then(response => dispatch(fetchNewsListSuccess(response)))
-      .catch(()=> dispatch(fetchNewsListFailed(true)));
+      .catch(() => dispatch(fetchNewsListFailed(true)));
   };
 };
+
 
 export const fetchNewsListSuccess = (response) => {
   // console.log(response)
@@ -84,5 +86,11 @@ export const setVisibilityFilters = (filters) => {
   return {
     type: SET_VISIBILITY_FILTERS,
     payload: filters,
+  };
+};
+
+export const resetNewsList = () => {
+  return {
+    type: RESET_NEWS_LIST,
   };
 };

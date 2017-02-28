@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // relative import
-import { fetchNewsList } from '../actions';
+import { fetchNewsList, resetNewsList } from '../actions';
 import { Link } from 'react-router';
 
 
@@ -11,6 +11,10 @@ class NewsList extends Component {
   componentDidMount() {
     this.props.fetchNewsList(NEWS_LIST_URL);
     // console.log('props', this.props)
+  }
+
+  componentWillUnmount() {
+    this.props.resetNewsList();
   }
 
   renderNewsItem(newsItem) {
@@ -62,7 +66,7 @@ class NewsList extends Component {
 
 const mapStateToPros = (state) => {
   const { isLoading, newsList, hasErrored, next, previous } = state.newsList;
-  console.log(newsList)
+  // console.log(newsList)
   return {
     isLoading,
     newsList,
@@ -72,4 +76,5 @@ const mapStateToPros = (state) => {
   };
 };
 
-export default connect(mapStateToPros, { fetchNewsList })(NewsList);
+export default connect(mapStateToPros,
+  { fetchNewsList, resetNewsList })(NewsList);
