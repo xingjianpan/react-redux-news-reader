@@ -10,7 +10,6 @@ class NewsItem extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // respond to parameter change in scenario 3
     const oldId = prevProps.params.newsId;
     const newId = this.props.params.newsId;
     if (newId !== oldId)

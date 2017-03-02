@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // relative import
 import { fetchNewsList, resetNewsList } from '../actions';
-import { Link } from 'react-router';
-
+import NewsItemLink from './NewsItemLink';
 
 const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
 
@@ -17,23 +16,20 @@ class NewsList extends Component {
     this.props.resetNewsList();
   }
 
-  renderNewsItem(newsItem) {
-    // console.log(newsItem)
-    return (
-      <Link
-        className="list-group-item list-group-item-action"
-        to={newsItem.link}
-        key={newsItem.id}
-      >
-        <span className="categoryName" >{newsItem.category}</span>
-        {'     '}
-        {newsItem.title}
-      </Link>
-    );
-  }
-
   fetchMore() {
     this.props.fetchNewsList(this.props.next);
+  }
+
+  renderNewsItem(newsItem) {
+    // console.log(newsItem);
+    return (
+      <NewsItemLink
+        key={newsItem.id}
+        link={newsItem.link}
+        title={newsItem.title}
+        category={newsItem.category}
+      />
+    );
   }
 
   renderButton() {
