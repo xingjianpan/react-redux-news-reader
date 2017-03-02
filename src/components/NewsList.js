@@ -39,6 +39,14 @@ class NewsList extends Component {
     return <p>No more news</p>;
   }
 
+  newsItemRender() {
+    return (
+      <div>
+        {this.props.newsList.map(item => this.renderNewsItem(item)) }
+      </div>
+    );
+  }
+
   render() {
     if (this.props.hasErrored) {
         return <p>Sorry! There was an error loading the items</p>;
@@ -48,9 +56,7 @@ class NewsList extends Component {
     }
     return (
       <div>
-        <div>
-          {this.props.newsList.map(item => this.renderNewsItem(item)) }
-        </div>
+        {this.newsItemRender()}
         <div>
           {this.renderButton()}
         </div>
