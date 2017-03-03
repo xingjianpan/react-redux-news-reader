@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+
 import { fetchNewsItem } from '../actions';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 

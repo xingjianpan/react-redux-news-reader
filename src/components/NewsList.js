@@ -19,8 +19,8 @@ class NewsList extends Component {
     this.props.setIgnoreLastFetch(true);
   }
 
-  fetchMore() {
-    this.props.fetchNewsList(this.props.nextHref);
+  fetchMore(url) {
+    this.props.fetchNewsList(url);
   }
 
   newsItemRender() {
@@ -44,8 +44,16 @@ class NewsList extends Component {
   }
 
   renderButton() {
-    if (this.props.nextHref) {
-      return <button onClick={this.fetchMore.bind(this)}>More</button>;
+    if (this.props.nextHref && this.props.prevHref) {
+      return (
+        <div>
+          <button onClick={() => { this.fetchMore(this.props.prevHref); }}>上一页</button>
+          {' '}
+          <button onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</button>
+        </div>
+      );
+    } else if (this.props.nextHref) {
+      return <button onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</button>
     }
     return <p>No more news</p>;
   }
@@ -60,8 +68,15 @@ class NewsList extends Component {
     }
     return (
       <div>
-        {this.newsItemRender()}
         <div>
+          {this.renderButton()}
+          <p />
+        </div>
+        <div>
+          {this.newsItemRender()}
+        </div>
+        <div>
+          <p />
           {this.renderButton()}
         </div>
       </div>
