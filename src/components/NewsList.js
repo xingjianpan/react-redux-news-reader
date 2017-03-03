@@ -23,10 +23,18 @@ class NewsList extends Component {
     this.props.fetchNewsList(url);
   }
 
+  newsCategoryFilter(news) {
+    const filters = ['美股', '要闻','基金'];
+    if (filters.indexOf(news.category)===-1){
+      return true;
+    }
+    return false;
+  }
+
   newsItemRender() {
     return (
       <div className="list-group">
-        {this.props.newsList.map(item => this.renderNewsItem(item)) }
+        {this.props.newsList.filter(item=>this.newsCategoryFilter(item)).map(item => this.renderNewsItem(item)) }
       </div>
     );
   }
