@@ -5,7 +5,7 @@ import ReduxPromise from 'redux-promise';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
-import Topics from './components/Topics';
+import AddCategoryFilter from './components/AddCategoryFilter';
 import App from './components/app';
 import NewsList from './components/NewsList';
 import NewsItem from './components/NewsItem';
@@ -25,7 +25,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={NewsList} />
-        <Route path="/topics" component={Topics} />
+        <Route path="/topics" component={AddCategoryFilter} />
         <Route path="/news/:newsId" component={NewsItem} />
          <Route path="/news" component={NewsList} />
       </Route>

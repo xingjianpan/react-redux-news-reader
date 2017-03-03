@@ -9,6 +9,7 @@ import {
   SET_VISIBILITY_FILTERS,
   RESET_NEWS_LIST,
   SET_IGNORE_LAST_FETCH,
+  ADD_FILTER,
 } from './types';
 
 
@@ -101,5 +102,12 @@ export const setVisibilityFilters = (filters) => {
 export const resetNewsList = () => {
   return {
     type: RESET_NEWS_LIST,
+  };
+};
+
+export const addFilter = (text) => {
+  return {
+    type: ADD_FILTER,
+    payload: text,
   };
 };

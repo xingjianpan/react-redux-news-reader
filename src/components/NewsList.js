@@ -24,8 +24,7 @@ class NewsList extends Component {
   }
 
   newsCategoryFilter(news) {
-    const filters = ['美股', '要闻','基金'];
-    if (filters.indexOf(news.category)===-1){
+    if (this.props.filters.indexOf(news.category)===-1){
       return true;
     }
     return false;
@@ -99,6 +98,7 @@ const mapStateToPros = (state) => {
           nextHref, prevHref, hasMoreNews,
           ignoreLastFetch,
         } = state.newsList;
+  const { filters } = state.newsListFilter;
   // console.log(newsList)
   // debugger
   return {
@@ -109,6 +109,7 @@ const mapStateToPros = (state) => {
     prevHref,
     hasMoreNews,
     ignoreLastFetch,
+    filters,
   };
 };
 
