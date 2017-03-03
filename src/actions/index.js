@@ -8,10 +8,19 @@ import {
   FETCH_NEWS_ITEM_FAILED,
   SET_VISIBILITY_FILTERS,
   RESET_NEWS_LIST,
+  SET_IGNORE_LAST_FETCH,
 } from './types';
 
 
 const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
+
+
+export const setIgnoreLastFetch = (bool) => {
+  return {
+    type: SET_IGNORE_LAST_FETCH,
+    payload: bool,
+  };
+};
 
 export const newsListIsLoading = (bool) => {
   return {

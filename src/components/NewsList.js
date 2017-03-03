@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // relative import
-import { fetchNewsList, resetNewsList } from '../actions';
+import { fetchNewsList, resetNewsList, setIgnoreLastFetch } from '../actions';
 import NewsItemLink from './NewsItemLink';
 
 const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
 
 class NewsList extends Component {
   componentDidMount() {
-    this.props.fetchNewsList(NEWS_LIST_URL);
+    if (!this.props.ignoreLastFetch) {
+      this.props.fetchNewsList(NEWS_LIST_URL);
+    }
     // console.log('props', this.props)
   }
 
   componentWillUnmount() {
-    this.props.resetNewsList();
+    // this.props.resetNewsList();
+    this.props.setIgnoreLastFetch(true);
   }
 
   fetchMore() {
-    this.props.fetchNewsList(this.props.next);
+    this.props.fetchNewsList(this.props.nextHref);
+  }
+
+  newsItemRender() {
+    return (
+      <div>
+        {this.props.newsList.map(item => this.renderNewsItem(item)) }
+      </div>
+    );
   }
 
   renderNewsItem(newsItem) {
@@ -33,23 +44,16 @@ class NewsList extends Component {
   }
 
   renderButton() {
-    if (this.props.next) {
+    if (this.props.nextHref) {
       return <button onClick={this.fetchMore.bind(this)}>More</button>;
     }
     return <p>No more news</p>;
   }
 
-  newsItemRender() {
-    return (
-      <div>
-        {this.props.newsList.map(item => this.renderNewsItem(item)) }
-      </div>
-    );
-  }
 
   render() {
     if (this.props.hasErrored) {
-        return <p>Sorry! There was an error loading the items</p>;
+      return <p>Sorry! There was an error loading the items</p>;
     }
     if (this.props.isLoading) {
       return <p>Loading…</p>;
@@ -67,16 +71,22 @@ class NewsList extends Component {
 }
 
 const mapStateToPros = (state) => {
-  const { isLoading, newsList, hasErrored, next, previous } = state.newsList;
+  const { isLoading, newsList, hasErrored,
+          nextHref, prevHref, hasMoreNews,
+          ignoreLastFetch,
+        } = state.newsList;
   // console.log(newsList)
+  // debugger
   return {
     isLoading,
     newsList,
     hasErrored,
-    next,
-    previous,
+    nextHref,
+    prevHref,
+    hasMoreNews,
+    ignoreLastFetch,
   };
 };
 
 export default connect(mapStateToPros,
-  { fetchNewsList, resetNewsList })(NewsList);
+  { fetchNewsList, resetNewsList, setIgnoreLastFetch })(NewsList);
