@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import reduxThunk from 'redux-thunk';
 import ReduxPromise from 'redux-promise';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
 import Topics from './components/Topics';
 import App from './components/app';
@@ -22,7 +22,7 @@ const store = createStoreWithMiddleware(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={NewsList} />
         <Route path="/topics" component={Topics} />

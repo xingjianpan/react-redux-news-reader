@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, hashHistory } from 'react-router';
-
+import { Link, browserHistory } from 'react-router';
 import { fetchNewsItem } from '../actions';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
@@ -36,6 +35,9 @@ class NewsItem extends Component {
           <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
           {'      '}
           <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
+          <div>
+            <button onClick={browserHistory.goBack}>返回之前页面</button>
+          </div>
         </div>
         <p />
         <a href={news.url}><h2>{news.title}</h2></a>
@@ -46,6 +48,9 @@ class NewsItem extends Component {
         <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
         {'      '}
         <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
+        <div>
+          <button onClick={browserHistory.goBack}>返回之前页面</button>
+        </div>
       </div>
     );
   }

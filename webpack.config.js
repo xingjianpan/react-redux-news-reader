@@ -14,6 +14,9 @@ var config = {
     filename: "bundle.js", // no hash in main.js because index.html is a static page
   },
   devtool: 'source-map',
+  devServer: {
+      historyApiFallback: true
+  },
   module: {
     loaders: [
      { test: /\.jsx?/,
