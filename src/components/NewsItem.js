@@ -12,14 +12,11 @@ class NewsItem extends Component {
   componentDidUpdate(prevProps) {
     const oldId = prevProps.params.newsId;
     const newId = this.props.params.newsId;
-    if (newId !== oldId)
-      { this.props.fetchNewsItem(newId)};
+    if (newId !== oldId) {
+      this.props.fetchNewsItem(newId);
+    }
   }
 
-
-  handleButtonClick() {
-    this.props.fetchNewsItem(Number(this.props.params.newsId) + 1);
-  }
   render() {
     const news = this.props.news;
     if (this.props.hasErrored) {
@@ -37,7 +34,13 @@ class NewsItem extends Component {
           <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
           {' '}
           <span>
-            <button type="button" className="btn btn-primary btn-sm" onClick={browserHistory.goBack}>返回之前页面</button>
+            <button
+              type="button"
+              className="btn btn-primary btn-sm"
+              onClick={browserHistory.goBack}
+            >
+            返回之前页面
+            </button>
           </span>
         </div>
         <p />
@@ -51,7 +54,13 @@ class NewsItem extends Component {
         <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
         {' '}
         <span>
-          <button type="button" className="btn btn-primary btn-sm" onClick={browserHistory.goBack}>返回之前页面</button>
+          <button
+            type="button"
+            className="btn btn-primary btn-sm"
+            onClick={browserHistory.goBack}
+          >
+            返回之前页面
+          </button>
         </span>
       </div>
     );
