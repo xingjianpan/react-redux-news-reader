@@ -39,6 +39,7 @@ class NewsList extends Component {
         link={newsItem.link}
         title={newsItem.title}
         category={newsItem.category}
+        source={newsItem.source}
       />
     );
   }
