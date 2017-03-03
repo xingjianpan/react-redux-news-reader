@@ -35,9 +35,10 @@ class NewsItem extends Component {
           <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
           {'      '}
           <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
-          <div>
-            <button onClick={browserHistory.goBack}>返回之前页面</button>
-          </div>
+          {' '}
+          <span>
+            <button type="button" className="btn btn-primary btn-sm" onClick={browserHistory.goBack}>返回之前页面</button>
+          </span>
         </div>
         <p />
         <a href={news.url}><h2>{news.title}</h2></a>
@@ -48,9 +49,10 @@ class NewsItem extends Component {
         <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
         {'      '}
         <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
-        <div>
-          <button onClick={browserHistory.goBack}>返回之前页面</button>
-        </div>
+        {' '}
+        <span>
+          <button type="button" className="btn btn-primary btn-sm" onClick={browserHistory.goBack}>返回之前页面</button>
+        </span>
       </div>
     );
   }

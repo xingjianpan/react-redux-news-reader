@@ -25,7 +25,7 @@ class NewsList extends Component {
 
   newsItemRender() {
     return (
-      <div>
+      <div className="list-group">
         {this.props.newsList.map(item => this.renderNewsItem(item)) }
       </div>
     );
@@ -47,13 +47,13 @@ class NewsList extends Component {
     if (this.props.nextHref && this.props.prevHref) {
       return (
         <div>
-          <button onClick={() => { this.fetchMore(this.props.prevHref); }}>上一页</button>
+          <button type="button" className="btn btn-primary btn-sm" onClick={() => { this.fetchMore(this.props.prevHref); }}>上一页</button>
           {' '}
-          <button onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</button>
+          <button type="button" className="btn btn-primary btn-sm" onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</button>
         </div>
       );
     } else if (this.props.nextHref) {
-      return <button onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</button>
+      return <button type="button" className="btn btn-primary btn-sm" onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</button>
     }
     return <p>No more news</p>;
   }
