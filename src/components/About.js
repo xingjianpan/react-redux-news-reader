@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
   return (
     <div>
-      <h2>小熊新闻阅读器</h2>
+      <h2>小牛新闻阅读器</h2>
       <h4>特点</h4>
       <ul>
         <li>客观： 不采用任何推荐算法</li>
