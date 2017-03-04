@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 
 const NewsItemLink = ({ key, link, title, category, source }) => (
-  <button key={key} className="list-group-item list-group-item-action">
+  <p key={key} className="list-group-item list-group-item-action">
     <span className="categoryName" >{category}</span>
     {' '}
     <span >
@@ -13,7 +13,7 @@ const NewsItemLink = ({ key, link, title, category, source }) => (
     </span>
     {' '}
     <span className="newsSource">({source})</span>
-  </button>
+  </p>
 );
 
 export default NewsItemLink;

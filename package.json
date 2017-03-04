@@ -8,7 +8,7 @@
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
-    "prod": "webpack -p --config webpack.config.production.js"
+    "prod": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +37,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-preset-stage-1": "^6.1.18",
+    "cross-env": "^3.1.4",
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
