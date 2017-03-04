@@ -34,6 +34,19 @@ class NewsItem extends Component {
   }
 
   renderPageControl() {
+    if (typeof window.orientation !== 'undefined') {
+      // on mobile
+      return (
+        <div>
+          <span>
+            <Link to={`/news/${Number(this.props.news.id) + 1}`}><ArrowLeft /></Link>
+          </span>
+          <span className="page-control">
+            <Link to={`/news/${Number(this.props.news.id) - 1}`}><ArrowRight /></Link>
+          </span>
+        </div>
+      );
+    }
     return (
       <div>
         <span>
