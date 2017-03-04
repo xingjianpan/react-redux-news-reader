@@ -10,6 +10,7 @@ import {
   RESET_NEWS_LIST,
   SET_IGNORE_LAST_FETCH,
   ADD_FILTER,
+  REMOVE_KEYWORD_FROM_FILTER,
 } from './types';
 
 
@@ -108,6 +109,13 @@ export const resetNewsList = () => {
 export const addFilter = (text) => {
   return {
     type: ADD_FILTER,
+    payload: text,
+  };
+};
+
+export const removeKeywordFromFilter = (text) => {
+  return {
+    type: REMOVE_KEYWORD_FROM_FILTER,
     payload: text,
   };
 };

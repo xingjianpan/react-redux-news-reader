@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
-import { addFilter } from '../actions';
+import { addFilter, removeKeywordFromFilter } from '../actions';
 
 class AddCategoryFilter extends Component {
 
@@ -13,13 +13,33 @@ class AddCategoryFilter extends Component {
     return
   }
 
-  render() {
-    const { handleSubmit } = this.props;
-    console.log(this.props)
-
+  handleRemoveKeywordFromFilter(text) {
+    this.props.removeKeywordFromFilter(text);
+  }
+  renderFormControl() {
     return (
       <div>
-        <p>过滤掉不想看的新闻类别, 双击取消过滤</p>
+        <ul>
+          {this.props.filters.map((item) => {
+            return (
+              <div key={item}>
+                <li onClick={() => { this.handleRemoveKeywordFromFilter(item); }}>
+                  {item}
+                </li>
+              </div>
+            );
+          })
+      }
+        </ul>
+      </div>
+    );
+  }
+
+  render() {
+    const { handleSubmit } = this.props;
+    return (
+      <div>
+        <p>过滤掉不想看的新闻类别, 单击取消过滤</p>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <Field name="categoryName" label="categoryName" component="input" type="text" />
           <button type="submit">添加</button>
@@ -27,7 +47,7 @@ class AddCategoryFilter extends Component {
 
         <div>
           <ul>
-            {this.props.filters.map(item => { return <li key={item}>{item}</li> })}
+            {this.renderFormControl()}
           </ul>
         </div>
       </div>
@@ -47,4 +67,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addFilter })(AddCategoryFilter);
+export default connect(mapStateToProps,
+  { addFilter, removeKeywordFromFilter })(AddCategoryFilter);

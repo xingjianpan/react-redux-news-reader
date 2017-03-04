@@ -25,7 +25,7 @@ class NewsList extends Component {
   }
 
   newsCategoryFilter(news) {
-    if (this.props.filters.indexOf(news.category)===-1){
+    if (this.props.filters.indexOf(news.category) === -1) {
       return true;
     }
     return false;
@@ -34,7 +34,7 @@ class NewsList extends Component {
   newsItemRender() {
     return (
       <div className="list-group">
-        {this.props.newsList.filter(item=>this.newsCategoryFilter(item)).map(item => this.renderNewsItem(item)) }
+        {this.props.newsList.filter(item => this.newsCategoryFilter(item)).map(item => this.renderNewsItem(item)) }
       </div>
     );
   }

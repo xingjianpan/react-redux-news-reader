@@ -2,6 +2,7 @@
 
 import {
   ADD_FILTER,
+  REMOVE_KEYWORD_FROM_FILTER,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -10,10 +11,12 @@ const INITIAL_STATE = {
 
 
 export default (state = INITIAL_STATE, action) => {
-  console.log('action: ', action);
+  // console.log('action: ', action);
   switch (action.type) {
     case ADD_FILTER:
-      return { ...state, filters:[...state.filters, action.payload ] };
+      return { ...state, filters: [...state.filters, action.payload] };
+    case REMOVE_KEYWORD_FROM_FILTER:
+      return { ...state, filters: state.filters.filter(element => element !== action.payload)};
     default:
       return state;
   }
