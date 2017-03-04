@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
+import Loading from 'react-loading';
 import { fetchNewsItem } from '../actions';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
@@ -26,7 +27,7 @@ class NewsItem extends Component {
       return <p>Sorry! There was an error loading the items</p>;
     }
     if (this.props.isLoading) {
-      return <p>Loading…</p>;
+      return <Loading type="bars" color="#e3e3e3" />;
     }
 
     document.title = this.props.news.title;
@@ -67,6 +68,7 @@ class NewsItem extends Component {
             返回之前页面
           </button>
         </span>
+
       </div>
     );
   }

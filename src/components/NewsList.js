@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Loading from 'react-loading';
 // relative import
 import { fetchNewsList, resetNewsList, setIgnoreLastFetch } from '../actions';
 import NewsItemLink from './NewsItemLink';
@@ -72,7 +73,7 @@ class NewsList extends Component {
       return <p>Sorry! There was an error loading the items</p>;
     }
     if (this.props.isLoading) {
-      return <p>Loading…</p>;
+      return <Loading type="bars" color="#e3e3e3" />;
     }
     return (
       <div>
