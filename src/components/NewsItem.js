@@ -40,13 +40,12 @@ class NewsItem extends Component {
           <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
           {' '}
           <span>
-            <button
-              type="button"
-              className="btn btn-primary btn-sm"
+            <a
               onClick={browserHistory.goBack}
+              href="#"
             >
             返回之前页面
-            </button>
+            </a>
           </span>
         </div>
         <p />
@@ -60,13 +59,12 @@ class NewsItem extends Component {
         <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
         {' '}
         <span>
-          <button
-            type="button"
-            className="btn btn-primary btn-sm"
+          <a
             onClick={browserHistory.goBack}
+            href="#"
           >
             返回之前页面
-          </button>
+          </a>
         </span>
 
       </div>
