@@ -41,6 +41,7 @@
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-ga": "^2.1.2",
     "react-icons": "^2.2.3",
     "react-lazyload": "^2.2.4",
     "react-loading": "0.0.9",
