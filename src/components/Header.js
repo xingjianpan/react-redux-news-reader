@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import  {Link } from 'react-router';
 import FaHome from 'react-icons/lib/fa/home';
 import FaSliders from 'react-icons/lib/fa/sliders';
-
+import AboutIcon from 'react-icons/lib/fa/question-circle';
 
 class Header extends Component {
   render() {
@@ -13,8 +13,8 @@ class Header extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/topics"><FaSliders /></Link>
           </li>
-          <li>
-
+          <li className="nav-item">
+            <Link className="nav-link" to="/about"><AboutIcon /></Link>
           </li>
 
         </ul>
