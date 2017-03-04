@@ -41,7 +41,7 @@ class AddCategoryFilter extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <div className="col-xs-8">
+        <div>
           <p>过滤掉不想看的新闻类别, 单击取消过滤</p>
           <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field name="categoryName" label="categoryName" component="input" type="text" className="form-control" />
