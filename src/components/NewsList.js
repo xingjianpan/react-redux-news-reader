@@ -76,13 +76,13 @@ class NewsList extends Component {
     } else if (this.props.nextHref) {
       return <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}><ArrowRight /></a>
     }
-    return <p>No more news</p>;
+    return <p>没有新闻了。</p>;
   }
 
 
   render() {
     if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the items</p>;
+      return <p>抱歉，无法获取新闻列表，请检查网络并刷新浏览器。</p>;
     }
     if (this.props.isLoading) {
       return <Loading type="bars" color="#e3e3e3" />;

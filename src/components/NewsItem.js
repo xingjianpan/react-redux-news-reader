@@ -66,7 +66,7 @@ class NewsItem extends Component {
   render() {
     const news = this.props.news;
     if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the items</p>;
+      return <p>抱歉，读取文章出错，请刷新浏览器后再试试。</p>;
     }
     if (this.props.isLoading) {
       return <Loading type="bars" color="#e3e3e3" />;
