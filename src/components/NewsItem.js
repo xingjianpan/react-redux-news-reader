@@ -16,7 +16,10 @@ class NewsItem extends Component {
       this.props.fetchNewsItem(newId);
     }
   }
-
+  componentWillUnmount() {
+    // this.props.resetNewsList();
+    document.title = 'News'
+  }
   render() {
     const news = this.props.news;
     if (this.props.hasErrored) {
@@ -25,6 +28,8 @@ class NewsItem extends Component {
     if (this.props.isLoading) {
       return <p>Loading…</p>;
     }
+
+    document.title = this.props.news.title;
     return (
       <div>
         <ScrollToTopOnMount />
