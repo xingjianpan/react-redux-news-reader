@@ -30,7 +30,7 @@ class NewsItem extends Component {
   }
   componentWillUnmount() {
     // this.props.resetNewsList();
-    document.title = 'News'
+    document.title = '小熊新闻'
   }
 
   renderPageControl() {

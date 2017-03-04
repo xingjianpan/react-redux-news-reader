@@ -61,9 +61,16 @@ class NewsList extends Component {
     if (this.props.nextHref && this.props.prevHref) {
       return (
         <div>
-          <a href="#" onClick={() => { this.fetchMore(this.props.prevHref); }}><ArrowLeft /></a>
-          {'翻页'}
-          <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}><ArrowRight /></a>
+          <span>
+            <a href="#" onClick={() => { this.fetchMore(this.props.prevHref); }}>
+              <ArrowLeft />
+            </a>
+          </span>
+          <span className="page-control">
+            <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}>
+              <ArrowRight />
+            </a>
+          </span>
         </div>
       );
     } else if (this.props.nextHref) {
