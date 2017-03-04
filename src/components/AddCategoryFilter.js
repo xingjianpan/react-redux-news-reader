@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import PlusIcon from 'react-icons/lib/fa/plus';
 import { addFilter, removeKeywordFromFilter } from '../actions';
+
 
 class AddCategoryFilter extends Component {
 
@@ -39,17 +41,14 @@ class AddCategoryFilter extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <p>过滤掉不想看的新闻类别, 单击取消过滤</p>
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          <Field name="categoryName" label="categoryName" component="input" type="text" />
-          <button type="submit">添加</button>
-        </form>
-
         <div>
-          <ul>
-            {this.renderFormControl()}
-          </ul>
+          <p>过滤掉不想看的新闻类别, 单击取消过滤</p>
+          <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <Field name="categoryName" label="categoryName" component="input" type="text" />
+            <button type="submit"><PlusIcon /></button>
+          </form>
         </div>
+        {this.renderFormControl()}
       </div>
     );
   }

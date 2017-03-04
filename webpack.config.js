@@ -34,7 +34,14 @@ var config = {
       include: APP_DIR,
       test: /\.(ttf|png|gif|eot|otf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: "file-loader"
-        }
+        },
+{
+    test: /react-icons\/(.)*(.js)$/,
+    loader: 'babel-loader',
+    query: {
+      presets: ['es2015', 'react']
+    }
+}
 
     ],
   },

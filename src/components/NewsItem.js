@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import Loading from 'react-loading';
+
+// icons
+import ArrowRight from 'react-icons/lib/fa/arrow-right';
+import ArrowLeft from 'react-icons/lib/fa/arrow-left';
+import ArrowBack from 'react-icons/lib/fa/step-backward';
+import CalendarIcon from 'react-icons/lib/fa/calendar';
+import NewsPaperIcon from 'react-icons/lib/fa/newspaper-o';
+import BarsIcon from 'react-icons/lib/fa/bars';
+
+// relative
 import { fetchNewsItem } from '../actions';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
+
 
 class NewsItem extends Component {
   componentDidMount() {
@@ -21,6 +32,24 @@ class NewsItem extends Component {
     // this.props.resetNewsList();
     document.title = 'News'
   }
+
+  renderPageControl() {
+    return (
+      <div>
+        <span>
+          <Link to={`/news/${Number(this.props.news.id) + 1}`}><ArrowLeft /></Link>
+        </span>
+        <span className="page-control">
+          <Link to={`/news/${Number(this.props.news.id) - 1}`}><ArrowRight /></Link>
+        </span>
+        <span className="page-control">
+          <a href="#" onClick={browserHistory.goBack}>
+            <ArrowBack />
+          </a>
+        </span>
+      </div>
+    );
+  }
   render() {
     const news = this.props.news;
     if (this.props.hasErrored) {
@@ -34,38 +63,16 @@ class NewsItem extends Component {
     return (
       <div>
         <ScrollToTopOnMount />
-        <div>
-          <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
-          {'      '}
-          <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
-          {' '}
-          <span>
-            <a
-              onClick={browserHistory.goBack}
-              href="#"
-            >
-            返回之前页面
-            </a>
-          </span>
-        </div>
+        {this.renderPageControl()}
         <p />
         <a href={news.url}><h2>{news.title}</h2></a>
-        <p><span>日期:</span>{news.create_date.substring(0, 10)}</p>
-        <p><span>话题:</span>{news.category}</p>
-        <p><span>来源:</span>{news.source}</p>
+        <p><span><CalendarIcon />{' '}</span>{news.create_date.substring(0, 10)}</p>
+        <p><span><BarsIcon /> {' '}</span>{news.category}</p>
+        <p><span><NewsPaperIcon />{' '}</span>{news.source}</p>
         <div dangerouslySetInnerHTML={{ __html: news.content_dirty }} />
-        <Link to={`/news/${Number(news.id) + 1}`}>上一条</Link>
-        {'      '}
-        <Link to={`/news/${Number(news.id) - 1}`}>下一条</Link>
-        {' '}
-        <span>
-          <a
-            onClick={browserHistory.goBack}
-            href="#"
-          >
-            返回之前页面
-          </a>
-        </span>
+
+
+        {this.renderPageControl()}
 
       </div>
     );

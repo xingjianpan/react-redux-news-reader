@@ -12,6 +12,10 @@
   font-size: 13px;
 }
 
+.page-control {
+  padding-top: 1cm;
+  padding-left: 1cm;
+}
 .newsSource {
   color: #828282;
   font-size: 8pt;

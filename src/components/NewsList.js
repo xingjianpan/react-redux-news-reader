@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Loading from 'react-loading';
+
+// icons
+import ArrowRight from 'react-icons/lib/fa/angle-double-right';
+import ArrowLeft from 'react-icons/lib/fa/angle-double-left';
+
 // relative import
 import { fetchNewsList, resetNewsList, setIgnoreLastFetch } from '../actions';
 import NewsItemLink from './NewsItemLink';
@@ -56,13 +61,13 @@ class NewsList extends Component {
     if (this.props.nextHref && this.props.prevHref) {
       return (
         <div>
-          <a href="#" onClick={() => { this.fetchMore(this.props.prevHref); }}>上一页</a>
-          {' '}
-          <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</a>
+          <a href="#" onClick={() => { this.fetchMore(this.props.prevHref); }}><ArrowLeft /></a>
+          {'翻页'}
+          <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}><ArrowRight /></a>
         </div>
       );
     } else if (this.props.nextHref) {
-      return <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}>下一页</a>
+      return <a href="#" onClick={() => { this.fetchMore(this.props.nextHref); }}><ArrowRight /></a>
     }
     return <p>No more news</p>;
   }
