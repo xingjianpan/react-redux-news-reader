@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Loading from 'react-loading';
-import ReactGA from 'react-ga';
 // icons
 import ArrowRight from 'react-icons/lib/fa/angle-double-right';
 import ArrowLeft from 'react-icons/lib/fa/angle-double-left';
@@ -11,7 +10,6 @@ import { fetchNewsList, resetNewsList, setIgnoreLastFetch } from '../actions';
 import NewsItemLink from './NewsItemLink';
 
 const NEWS_LIST_URL = 'http://api.quantnote.cn/api/news/';
-ReactGA.initialize('UA-20407449-5');
 class NewsList extends Component {
   componentDidMount() {
     if (!this.props.ignoreLastFetch) {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import Loading from 'react-loading';
-import ReactGA from 'react-ga';
 // icons
 import ArrowRight from 'react-icons/lib/fa/arrow-right';
 import ArrowLeft from 'react-icons/lib/fa/arrow-left';
@@ -15,7 +14,6 @@ import BarsIcon from 'react-icons/lib/fa/bars';
 import { fetchNewsItem } from '../actions';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
-ReactGA.initialize('UA-20407449-5');
 class NewsItem extends Component {
   componentDidMount() {
     this.props.fetchNewsItem(this.props.params.newsId);
