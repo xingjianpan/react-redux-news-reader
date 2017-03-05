@@ -10,7 +10,7 @@ import ArrowLeft from 'react-icons/lib/fa/angle-double-left';
 import { fetchNewsList, resetNewsList, setIgnoreLastFetch } from '../actions';
 import NewsItemLink from './NewsItemLink';
 
-const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
+const NEWS_LIST_URL = 'http://api.quantnote.cn/api/news/';
 ReactGA.initialize('UA-20407449-5');
 class NewsList extends Component {
   componentDidMount() {

@@ -14,7 +14,7 @@ import {
 } from './types';
 
 
-const NEWS_LIST_URL = 'http://123.56.168.1:8080/api/news/';
+const NEWS_LIST_URL = 'http://api.quantnote.cn/api/news/';
 
 
 export const setIgnoreLastFetch = (bool) => {
