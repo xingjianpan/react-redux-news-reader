@@ -9,7 +9,7 @@ import ArrowLeft from 'react-icons/lib/fa/angle-double-left';
 import { fetchNewsList, resetNewsList, setIgnoreLastFetch } from '../actions';
 import NewsItemLink from './NewsItemLink';
 
-const NEWS_LIST_URL = 'http://api.quantnote.cn/api/news/';
+const NEWS_LIST_URL = 'https://api.quantnote.cn/api/news/';
 class NewsList extends Component {
   componentDidMount() {
     if (!this.props.ignoreLastFetch) {
