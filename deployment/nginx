@@ -1,7 +1,10 @@
 server {
-    server_name react-news;
-    listen 9999;
+    server_name news.quantnote.cn;
+    listen 80;
     root /webapps/react-redux-news-reader/build;
+    location /.well-known {
+        alias /webapps/react-redux-news-reader/.well-known/;
+    }
 
     location / {
         try_files $uri /index.html;
